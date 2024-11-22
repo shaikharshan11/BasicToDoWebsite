@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Kanit:ital,wght@0,100;0,300;0,500;0,600;1,300;1,500&family=Libre+Baskerville&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100;0,200;0,400;0,700;1,300;1,400;1,500;1,700&family=Poppins&family=Roboto+Slab&family=Zen+Kurenaido&display=swap" 
+    rel="stylesheet">
+    <link rel="stylesheet" href='./style.css'>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Basic To Do Website</h1>
+        <input type='text' id="inputField" />
+        <button class="btn">Click Me</button>
+        <div class="todoListsElem"></div>
+    </div>
+    <script>
+        let inputElem = document.getElementById('inputField');
+        let clickBtn = document.querySelector('.btn');
+        let todoElem = document.querySelector('.todoListsElem');
+
+        const addToDo = () => {
+            console.log(inputElem.value);
+            let pElem = document.createElement('p');
+            pElem.textContent = inputElem.value;
+            console.log(pElem);
+            todoElem.append(pElem);
+            inputElem.value='';
+        };
+        clickBtn.addEventListener('click', () => {
+            addToDo();
+        });
+
+        todoElem.addEventListener('click', (event)=>{
+            console.log(event.target);
+            let currentElem = event.target;
+            currentElem.remove();
+        });
+    </script>
+</body>
+</html>
